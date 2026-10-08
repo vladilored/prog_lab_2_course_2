@@ -1,16 +1,17 @@
 #include "header.h"
 #include <iostream>
+using namespace std;
 
 int Wine::count = 0;
 
 Wine::Wine(double alc, double dens) : alcContent(alc), density(dens) {
     count++;
-    std::cout << "Wine object created. Total objects: " << count << std::endl;
+    cout << "Wine object created. Total objects: " << count << endl;
 }
 
 Wine::~Wine() {
     count--;
-    std::cout << "Wine object destroyed. Total objects: " << count << std::endl;
+    cout << "Wine object destroyed. Total objects: " << count << endl;
 }
 
 Wine* Wine::create(double alc, double dens) {
@@ -22,12 +23,12 @@ void Wine::destroy(Wine* obj) {
 }
 
 void Wine::checkOut() {
-    std::cout << "Wine checked out. Alcohol content: " << alcContent
-              << "%, Density: " << density << std::endl;
+    cout << "Wine checked out. Alcohol content: " << alcContent
+         << "%, Density: " << density << endl;
 }
 
 void Wine::Diagnose(const char* diagnosis) {
-    std::cout << "Diagnosis for wine: " << diagnosis << std::endl;
+    cout << "Diagnosis for wine: " << diagnosis << endl;
 }
 
 int Wine::getCount() {
@@ -43,7 +44,7 @@ void externalDestroy(Wine* obj) {
 }
 
 void diagnoseWine(Wine& wine, const char* diagnosis) {
-    std::cout << "[Friend function] Diagnosis: " << diagnosis
-              << " for wine with alcohol: " << wine.alcContent
-              << "% and density: " << wine.density << std::endl;
+    cout << "[Friend function] Diagnosis: " << diagnosis
+         << " for wine with alcohol: " << wine.alcContent
+         << "% and density: " << wine.density << endl;
 }
